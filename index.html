@@ -187,7 +187,21 @@
       animation: confettiFall 4s linear infinite;
 
     }
+.slideshow-container {
+  position: relative;
+  max-width: 350px; /* you can increase size if you want */
+  margin: 20px auto;
+}
 
+.slides {
+  display: none;
+}
+
+.slides img {
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+      }
   </style>
 
 </head>
@@ -254,6 +268,21 @@
   <p>Thank you for being special to me 💕</p>
 
 
+<script>
+  let slideIndex = 0;
+  showSlides();
+
+  function showSlides() {
+    let slides = document.getElementsByClassName("slides");
+    for (let i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) {slideIndex = 1}
+    slides[slideIndex - 1].style.display = "block";
+    setTimeout(showSlides, 2500); // Change image every 2.5 seconds
+  }
+</script>
 
 
     <!-- Balloons -->
