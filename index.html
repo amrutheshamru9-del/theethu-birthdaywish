@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Happy Birthday Theethu 🎉</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 0 15px 40px;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(120deg, #ffd6e0 0%, #cfe9ff 100%);
+      color: #222;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    header {
+      text-align: center;
+      padding-top: 28px;
+    }
+    h1 {
+      margin: 0;
+      font-size: 2.2rem;
+      color: #d63384;
+      text-shadow: 1px 1px 6px rgba(0,0,0,0.15);
+    }
+
+    /* Message box */
+    .message {
+      max-width: 820px;
+      margin: 18px auto;
+      background: rgba(255,255,255,0.92);
+      border-radius: 14px;
+      padding: 18px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+      line-height: 1.6;
+      font-size: 1.05rem;
+    }
+    .message strong { color: #b5179e; }
+
+    /* Audio */
+    .audio-wrap {
+      margin: 18px auto;
+      text-align: center;
+    }
+    audio { outline: none; }
+
+    /* Slideshow */
+    .slideshow-container {
+      max-width: 640px;
+      margin: 22px auto;
+      position: relative;
+    }
+    .mySlides {
+      display: none;
+      border-radius: 14px;
+      overflow: hidden;
+      animation: fadeInImg 0.9s ease-in;
+    }
+    .mySlides img {
+      width: 100%;
+      display: block;
+      height: auto;
+    }
+    @keyframes fadeInImg {
+      from { opacity: 0; transform: scale(1.02); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+
+    /* Balloons */
+    .balloon {
+      position: absolute;
+      bottom: -160px;
+      width: 58px;
+      height: 78px;
+      border-radius: 50%;
+      animation: floatUp linear infinite;
+      opacity: 0.9;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+    @keyframes floatUp {
+      0% { transform: translateY(0) }
+      100% { transform: translateY(-120vh) }
+    }
+
+    /* Confetti */
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 12px;
+      top: -20px;
+      opacity: 0.95;
+      border-radius: 2px;
+      animation: confettiFall linear forwards;
+    }
+    @keyframes confettiFall {
+      to {
+        transform: translateY(115vh) rotate(520deg);
+        opacity: 0;
+      }
+    }
+
+    /* Footer note */
+    .footer-note {
+      text-align: center;
+      margin-top: 18px;
+      font-size: 0.95rem;
+      color: #444;
+    }
+
+    /* Responsive */
+    @media (max-width:520px){
+      h1 { font-size: 1.6rem; }
+      .message { font-size: 0.98rem; padding:14px; }
+      .slideshow-container { max-width: 95%; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>🎂 Happy Birthday Theethu 🎂</h1>
+  </header>
+
+  <div class="message" role="article" aria-label="Birthday message">
+    <p>
+      Hey Theethu 😊 — <strong>Happy Birthday!</strong>
+    </p>
+
+    <p>
+      Even though we don’t meet often or talk every single day,  
+      you’ve still become such a special part of my life.  
+      I want you as my best friend — for a long time — sharing little laughs,  
+      enjoying small moments, and being there for each other through both happy and tough times. 💖
+    </p>
+
+    <p>
+      Our friendship may be growing slowly, but that makes it even more meaningful.  
+      I truly wish to see it grow stronger, step by step.  
+      May this birthday bring you endless smiles, love, and beautiful surprises ✨
+    </p>
+
+    <p style="margin-top:10px; font-weight:600; color:#b5179e;">— From Amruthesh</p>
+  </div>
+
+  <div class="audio-wrap">
+    <h3 style="margin:6px 0 10px;">🎶 A special song 🎶</h3>
+    <audio controls>
+      <source src="theethu-song.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+
+  <!-- Slideshow -->
+  <div class="slideshow-container">
+    <div class="mySlides"><img src="theethu.jpg" alt="Theethu photo 1"></div>
+    <div class="mySlides"><img src="theethu2.jpg" alt="Theethu photo 2"></div>
+    <div class="mySlides"><img src="theethu3.jpg" alt="Theethu photo 3"></div>
+    <div class="mySlides"><img src="theethu4.jpg" alt="Theethu photo 4"></div>
+    <div class="mySlides"><img src="theethu5.jpg" alt="Theethu photo 5"></div>
+    <div class="mySlides"><img src="theethu6.jpg" alt="Theethu photo 6"></div>
+  </div>
+
+  <!-- Decorations -->
+  <div id="balloons"></div>
+  <div id="confetti-container"></div>
+
+  <div class="footer-note">Open this page on her birthday and share the smile ✨</div>
+
+  <script>
+    /* Slideshow */
+    let slideIndex = 0;
+    function showSlides() {
+      const slides = document.getElementsByClassName("mySlides");
+      for (let i=0;i<slides.length;i++){ slides[i].style.display = "none"; }
+      slideIndex++;
+      if (slideIndex > slides.length) slideIndex = 1;
+      slides[slideIndex-1].style.display = "block";
+      setTimeout(showSlides, 2600);
+    }
+    showSlides();
+
+    /* Balloons */
+    function createBalloon(){
+      const b = document.createElement("div");
+      b.className = "balloon";
+      b.style.left = (Math.random() * 92) + "vw";
+      b.style.background = `hsl(${Math.random()*320},70%,60%)`;
+      b.style.animationDuration = (Math.random()*3 + 5) + "s";
+      document.getElementById("balloons").appendChild(b);
+      setTimeout(()=> b.remove(), 9000);
+    }
+    setInterval(createBalloon, 900);
+
+    /* Confetti */
+    function createConfetti(){
+      const c = document.createElement("div");
+      c.className = "confetti";
+      c.style.left = (Math.random()*98) + "vw";
+      c.style.background = `hsl(${Math.random()*360},80%,60%)`;
+      c.style.width = (6 + Math.random()*12) + "px";
+      c.style.height = (8 + Math.random()*14) + "px";
+      c.style.animationDuration = (2.2 + Math.random()*2.8) + "s";
+      document.getElementById("confetti-container").appendChild(c);
+      setTimeout(()=> c.remove(), 6000);
+    }
+    setInterval(createConfetti, 260);
+  </script>
+
+</body>
+</html>
