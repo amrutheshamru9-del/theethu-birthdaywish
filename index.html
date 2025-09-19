@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <title>Happy Birthday Theethu 🎉</title>
+
+  <style>
+
+    body {
+
+      font-family: 'Arial', sans-serif;
+
+      text-align: center;
+
+      background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
+
+      color: #333;
+
+      padding: 30px;
+
+      overflow: hidden;
+
+      animation: fadeIn 2s ease-in-out;
+
+    }
+
+    h1 {
+
+      font-size: 45px;
+
+      color: #0077b6;
+
+      margin-bottom: 20px;
+
+    }
+
+    p {
+
+      font-size: 20px;
+
+      max-width: 700px;
+
+      margin: 20px auto;
+
+      line-height: 1.6;
+
+      background: rgba(255, 255, 255, 0.85);
+
+      padding: 15px;
+
+      border-radius: 12px;
+
+    }
+
+    button {
+
+      background: #ff4081;
+
+      color: white;
+
+      padding: 12px 25px;
+
+      font-size: 18px;
+
+      border: none;
+
+      border-radius: 8px;
+
+      cursor: pointer;
+
+      transition: 0.3s;
+
+    }
+
+    button:hover {
+
+      background: #e91e63;
+
+    }
+
+    .hidden {
+
+      display: none;
+
+    }
+
+    .heart {
+
+      color: red;
+
+      font-size: 35px;
+
+      animation: heartbeat 1.5s infinite;
+
+    }
+
+    audio {
+
+      margin-top: 25px;
+
+    }
+
+
+
+    /* Animations */
+
+    @keyframes heartbeat {
+
+      0% { transform: scale(1); }
+
+      50% { transform: scale(1.3); }
+
+      100% { transform: scale(1); }
+
+    }
+
+    @keyframes float {
+
+      0% { transform: translateY(100vh); opacity: 1; }
+
+      100% { transform: translateY(-20vh); opacity: 0; }
+
+    }
+
+    @keyframes confettiFall {
+
+      0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
+
+      100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+
+    }
+
+
+
+    /* Balloons */
+
+    .balloon {
+
+      position: absolute;
+
+      bottom: -150px;
+
+      width: 50px;
+
+      height: 70px;
+
+      border-radius: 50%;
+
+      animation: float 8s linear infinite;
+
+    }
+
+    .balloon::after {
+
+      content: "";
+
+      position: absolute;
+
+      top: 70px;
+
+      left: 22px;
+
+      width: 6px;
+
+      height: 50px;
+
+      background: #444;
+
+    }
+
+
+
+    /* Confetti */
+
+    .confetti {
+
+      position: absolute;
+
+      width: 10px;
+
+      height: 15px;
+
+      animation: confettiFall 4s linear infinite;
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <h1>🎂 Happy Birthday Theethu 🎂</h1>
+
+
+
+  <!-- Surprise button -->
+
+  <button onclick="showSurprise()">Click here for your surprise 🎁</button>
+
+
+
+  <!-- Hidden surprise content -->
+
+  <div id="surprise" class="hidden">
+
+    <p>
+
+      Hey Theethu 😊<br><br>
+
+      Happy Birthday! 🎉<br>
+
+      I really enjoy the time we spend together and our chats — you make everything more fun. <br>
+
+      I’d love to become your best friend and share more laughs and memories with you. 🌸💫
+
+      <br><br>
+
+      Wishing you a day full of smiles and all the things you love. 💖
+
+    </p>
+
+
+
+    <div class="heart">❤️</div>
+
+
+
+    <h3>🎶 A small surprise 🎶</h3>
+
+    <audio controls>
+
+      <source src="theethu-song.mp3" type="audio/mpeg">
+
+      Your browser does not support the audio element.
+
+    </audio>
+
+
+
+    <!-- Balloons -->
+
+    <div class="balloon" style="left: 10%; background: #ff6f61; animation-duration: 6s;"></div>
+
+    <div class="balloon" style="left: 30%; background: #6a5acd; animation-duration: 7s;"></div>
+
+    <div class="balloon" style="left: 50%; background: #20b2aa; animation-duration: 8s;"></div>
+
+    <div class="balloon" style="left: 70%; background: #ffa500; animation-duration: 9s;"></div>
+
+    <div class="balloon" style="left: 90%; background: #ff1493; animation-duration: 10s;"></div>
+
+
+
+    <!-- Confetti -->
+
+    <div class="confetti" style="left: 15%; background: red; animation-duration: 3s;"></div>
+
+    <div class="confetti" style="left: 35%; background: blue; animation-duration: 4s;"></div>
+
+    <div class="confetti" style="left: 55%; background: green; animation-duration: 5s;"></div>
+
+    <div class="confetti" style="left: 75%; background: purple; animation-duration: 3.5s;"></div>
+
+    <div class="confetti" style="left: 85%; background: pink; animation-duration: 4.5s;"></div>
+
+  </div>
+
+
+
+  <script>
+
+    function showSurprise() {
+
+      const surprise = document.getElementById("surprise");
+
+      surprise.classList.remove("hidden");
+
+
+
+      // try to autoplay the song after user interaction (works on most browsers)
+
+      const audio = surprise.querySelector("audio");
+
+      if (audio) {
+
+        audio.play().catch(()=>{ /* autoplay may be blocked; user can press play */ });
+
+      }
+
+    }
+
+  </script>
+
+</body>
+
+</html>
