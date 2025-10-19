@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Theethu 🎉</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      color: #fff;
+      margin-top: 20px;
+      text-shadow: 2px 2px 4px #00000050;
+    }
+
+    p {
+      font-size: 1.2em;
+      color: #fff;
+      margin: 15px auto;
+      width: 90%;
+      max-width: 600px;
+    }
+
+    /* Gift box */
+    .gift-box {
+      width: 120px;
+      height: 120px;
+      background: #ff477e;
+      margin: 40px auto;
+      position: relative;
+      cursor: pointer;
+      border-radius: 10px;
+    }
+
+    .gift-box:before {
+      content: '';
+      width: 30px;
+      height: 120px;
+      background: #fff;
+      position: absolute;
+      left: 45px;
+    }
+
+    .gift-box:after {
+      content: '';
+      width: 120px;
+      height: 30px;
+      background: #fff;
+      position: absolute;
+      top: 45px;
+    }
+
+    /* Balloons */
+    .balloon {
+      width: 40px;
+      height: 50px;
+      background: red;
+      border-radius: 50%;
+      position: absolute;
+      bottom: -150px;
+      animation: float 6s linear infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(-800px); opacity: 0; }
+    }
+
+    /* Confetti */
+    .confetti {
+      width: 8px;
+      height: 14px;
+      background-color: yellow;
+      position: absolute;
+      top: -10px;
+      animation: fall 5s linear infinite;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(800px) rotate(360deg); opacity: 0; }
+    }
+
+    /* Slideshow */
+    .slideshow-container {
+      max-width: 400px;
+      position: relative;
+      margin: auto;
+    }
+
+    .slides {
+      display: none;
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    /* Video */
+    video {
+      margin: 20px auto;
+      max-width: 90%;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+  <h1>🎉 Happy Birthday Theethu 🎉</h1>
+  <div class="gift-box" onclick="openGift()"></div>
+
+  <p id="message" style="display:none;">
+    Wishing you the happiest birthday, Theethu! 🥳  
+    Even though we don’t meet every day, the bond we share feels truly special.  
+    I hope we continue to be best friends for a long time — sharing laughter, little joys, and supporting each other through tough times. 💖  
+    <br><br>
+    From someone who truly wishes to create beautiful memories with you 🌸
+  </p>
+
+  <!-- Slideshow -->
+  <div class="slideshow-container" id="slideshow" style="display:none;">
+    <img class="slides" src="theethu1.jpg" alt="Photo 1">
+    <img class="slides" src="theethu2.jpg" alt="Photo 2">
+    <img class="slides" src="theethu3.jpg" alt="Photo 3">
+    <img class="slides" src="theethu4.jpg" alt="Photo 4">
+    <img class="slides" src="theethu5.jpg" alt="Photo 5">
+    <img class="slides" src="theethu6.jpg" alt="Photo 6">
+    <img class="slides" src="theethu7.jpg" alt="Photo 7">
+    <img class="slides" src="theethu8.jpg" alt="Photo 8">
+    <img class="slides" src="theethu9.jpg" alt="Photo 9">
+    <img class="slides" src="theethu10.jpg" alt="Photo 10">
+  </div>
+
+  <!-- Video -->
+  <div id="video-container" style="display:none;">
+    <video controls>
+      <source src="theethu1.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <!-- Background song -->
+  <audio id="bg-music" src="theethu-song.mp3" loop></audio>
+
+  <script>
+    function openGift() {
+      document.querySelector('.gift-box').style.display = 'none';
+      document.getElementById('message').style.display = 'block';
+      document.getElementById('slideshow').style.display = 'block';
+      document.getElementById('video-container').style.display = 'block';
+      document.getElementById('bg-music').play(); // Play song
+      showSlides();
+
+      // Balloons
+      for (let i = 0; i < 15; i++) {
+        let balloon = document.createElement('div');
+        balloon.className = 'balloon';
+        balloon.style.left = Math.random() * window.innerWidth + 'px';
+        balloon.style.background = ['red','blue','green','pink','yellow'][Math.floor(Math.random()*5)];
+        balloon.style.animationDuration = (4 + Math.random()*3) + 's';
+        document.body.appendChild(balloon);
+      }
+
+      // Confetti
+      for (let i = 0; i < 40; i++) {
+        let conf = document.createElement('div');
+        conf.className = 'confetti';
+        conf.style.left = Math.random() * window.innerWidth + 'px';
+        conf.style.backgroundColor = ['red','blue','green','orange','purple','yellow'][Math.floor(Math.random()*6)];
+        conf.style.animationDuration = (3 + Math.random()*2) + 's';
+        document.body.appendChild(conf);
+      }
+    }
+
+    // Slideshow logic
+    let slideIndex = 0;
+    function showSlides() {
+      let slides = document.getElementsByClassName("slides");
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) { slideIndex = 1 }
+      slides[slideIndex-1].style.display = "block";  
+      setTimeout(showSlides, 2500);
+    }
+  </script>
+</body>
+</html>
